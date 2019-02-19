@@ -1,13 +1,15 @@
 import React from 'react';
 import uuid from 'uuid';
 import style from './App.css';
-import Title from '../components/Title'
+import Title from '../components/Title';
 
 class App extends React.Component {
     constructor(props){
         super(props);
         this.state = {//początkowy stan aplikacji
             data: [],
+            title: 'Webpack loaders'
+            //jak podać liczbę zadań
         };
     }
     addTodo(val){//metoda dodająca nowe elementy do kolekcji
@@ -26,7 +28,8 @@ class App extends React.Component {
         return (
             <div className={style.TodoApp}>
                 Tutaj pojawią się komponenty naszej aplikacji.
-            </div>
+                
+            </div>/*tutaj musze dodać chyba title i numberOfTasks*/
         );
     }
 }
