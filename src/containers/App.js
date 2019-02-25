@@ -2,13 +2,24 @@ import React from 'react';
 import uuid from 'uuid';
 import style from './App.css';
 import Title from '../components/Title';
+import TodoList from '../components/TodoList';
+
 
 class App extends React.Component {
     constructor(props){
         super(props);
         this.state = {//początkowy stan aplikacji
-            data: [],
-            title: 'Webpack loaders'
+            data: [{
+                id: 1,
+                    text: 'clean room'
+            }, {
+                id: 2,
+                    text: 'wash the dishes'
+            }, {
+                id: 3,
+                    text: 'feed my cat'
+            }],
+            title: 'Things to do: '
             //jak podać liczbę zadań
         };
     }
@@ -27,9 +38,9 @@ class App extends React.Component {
     render() {//metoda wyświetlajaca całą aplikację
         return (
             <div className={style.TodoApp}>
-                Tutaj pojawią się komponenty naszej aplikacji.
-                
-            </div>/*tutaj musze dodać chyba title i numberOfTasks*/
+                <Title title={this.state.title} numberOfTasks={this.state.data.length} />
+                <TodoList items={this.state.data} remove={this.removeTodo.bind(this)}  />
+            </div>
         );
     }
 }
